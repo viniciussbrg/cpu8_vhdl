@@ -1,0 +1,37 @@
+# =============================================================================
+# Arquivo de constraints para Basys 2 (XC3S100E)
+# Define o mapeamento entre os sinais do VHDL e os pinos fisicos da placa
+# =============================================================================
+
+# Clock principal da placa: 50MHz no pino B8
+NET "clk"    LOC = "B8"  | IOSTANDARD = LVCMOS33;
+
+# BTN0 no pino G12: usado como Reset da CPU
+# Quando pressionado envia '1', o codigo inverte para rst_b='0' (reset ativo)
+NET "btn0"   LOC = "G12" | IOSTANDARD = LVCMOS33;
+
+# BTN1 no pino C11: usado como Clock manual
+# Cada aperto gera meio ciclo de clock na CPU
+NET "btn1"   LOC = "C11" | IOSTANDARD = LVCMOS33;
+
+# SW7 no pino N3: usado como seletor ACC/PC nos LEDs
+# SW7=0 (baixo): LEDs mostram ACC
+# SW7=1 (cima):  LEDs mostram PC
+NET "sw0"    LOC = "N3"  | IOSTANDARD = LVCMOS33;
+
+# LEDs de LD0 a LD7 (da direita para esquerda na placa)
+# LD0 = bit menos significativo (LSB)
+# LD7 = bit mais significativo (MSB)
+NET "led<0>" LOC = "M5"  | IOSTANDARD = LVCMOS33; -- LD0: bit 0
+NET "led<1>" LOC = "M11" | IOSTANDARD = LVCMOS33; -- LD1: bit 1
+NET "led<2>" LOC = "P7"  | IOSTANDARD = LVCMOS33; -- LD2: bit 2
+NET "led<3>" LOC = "P6"  | IOSTANDARD = LVCMOS33; -- LD3: bit 3
+NET "led<4>" LOC = "N5"  | IOSTANDARD = LVCMOS33; -- LD4: bit 4
+NET "led<5>" LOC = "N4"  | IOSTANDARD = LVCMOS33; -- LD5: bit 5
+NET "led<6>" LOC = "P4"  | IOSTANDARD = LVCMOS33; -- LD6: bit 6
+NET "led<7>" LOC = "G1"  | IOSTANDARD = LVCMOS33; -- LD7: bit 7
+
+# Restricao de timing do clock
+# Define periodo de 20ns (= 50MHz) com duty cycle de 50%
+NET "clk" TNM_NET = "clk";
+TIMESPEC TS_clk = PERIOD "clk" 20 ns HIGH 50%;

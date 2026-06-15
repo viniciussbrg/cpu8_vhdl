@@ -6,7 +6,7 @@ Trabalho da disciplina de **Sistemas Reconfiguráveis**,
 ministrada pelo prof. **Vinicius da Silva Borges**.  
 Semestre **2026/1**.
 
-## Integrantes
+## Integrante
 
 - Gustavo Correa Pedro de Carvalho
 
@@ -97,3 +97,12 @@ Para **reproduzir o projeto do zero**, siga esta ordem:
 | BTNU (T18) | Clock manual — 2 apertos = 1 ciclo completo |
 | SW0 (V17) baixo | LEDs mostram ACC (acumulador) |
 | SW0 (V17) alto | LEDs mostram PC (program counter) |
+
+## Demonstração
+
+Vídeo da CPU em execução na placa Digilent Basys 3, mostrando o avanço manual do clock e a visualização do acumulador (ACC) e do contador de programa (PC) nos LEDs:
+
+https://github.com/viniciussbrg/cpu8_vhdl/raw/main/media/demonstracao_basys3.mp4
+
+
+O arquivo de vídeo está disponível em media/demonstracao_basys3.mp4.
